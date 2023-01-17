@@ -1,0 +1,135 @@
+*{
+  box-sizing: border-box;
+}
+html{
+  max-height: 6000px;
+  font-family: 'Poppins';
+}
+body{
+  /*background-image: linear-gradient(180deg,rgba(0, 0, 0, 0.1), rgba(12, 6, 3, 0.35)), url("../img/background-body.png");*/
+  background: linear-gradient(rgba(117, 2, 2, 0.95)8%,rgba(0, 0, 0)37%);
+  background-attachment:fixed;
+  background-position:center;
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+}
+
+/*Home*/
+
+#-logo{
+  padding: 4em;
+  padding-left: 1em;
+  padding-right: 28em;
+  text-align: left;
+}
+#logo{
+  padding-top: 1em;
+  width: 180px;
+}
+.navbar-toggler{
+  align-self:center;
+}
+.navbar-toggler-icon{
+  width: 50px;
+  height: 50px;
+  justify-self: center;
+}
+a{
+  text-decoration: none!important;
+  color: rgb(255, 255, 255)!important;
+}
+/*animacion links*/
+#link-nav::after {
+  content: ''!important;
+  position: absolute!important;
+  bottom: 0!important;
+  left: 0!important;
+  width: 100%!important;
+  height: 0.1em!important;
+  background-color: rgb(255, 255, 255)!important;
+  opacity: 0!important;
+  transition: opacity 300ms, transform 300ms!important;
+}
+
+#link-nav:hover::after,
+#link-nav:focus::after {
+  opacity: 1!important;
+  transform: translate3d(0, 0.2em, 0)!important;
+}
+
+#logo{
+  position: relative;
+  left: 4em;
+}
+#div-login{
+  padding-top: 1.1em;
+  padding-left: 10em;
+}
+.nav-item {
+  position: relative;
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  line-height: 1.2;
+  -moz-transform: matrix( 0.89234407024477,0,0,0.89234407024477,0,0);
+  -webkit-transform: matrix( 0.89234407024477,0,0,0.89234407024477,0,0);
+  -ms-transform: matrix( 0.89234407024477,0,0,0.89234407024477,0,0);
+  z-index: 8;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 1em;
+}
+#texto-body{
+  color: rgba(255,255,255);
+  font-size: 3em;
+  padding-left: 1.6em;
+  padding-bottom: 1em;
+  line-height: 1.43;
+  text-align: left;  
+}
+
+#cuadro {
+  background-color: rgb(148, 48, 50);
+  z-index: 0;
+  opacity: 0.8;
+  border-radius: 2px;
+  align-self: end;
+  max-height: 70px;
+}
+#redes{
+  align-items:center;
+  margin-left: 23px;
+  margin-bottom: 18px; 
+}
+
+/*Eventos*/
+.titulo {
+  color: white;
+  font-weight: 300;
+  padding: 30px 0;
+  margin: 1.5em 0;
+  margin-left: 2em;
+  font-size: 53px;
+  text-align: left;
+}
+
+#boton-eventos:hover{
+  background-color: rgba(71, 18, 18, 0.95);
+}
+
+/*Contacto*/
+#form-contacto{
+  resize:none;
+}
+
+
+/*Tienda*/
+
+
+
+
+
+
+  
