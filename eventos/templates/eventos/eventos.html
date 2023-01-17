@@ -4,29 +4,33 @@
 
 {% block content %}
     <h1 class="titulo">Enterate de todo Acá</h1>
-    <div class="container">
-    <main>
+    
+    <main class="container" style="max-width: 90%;">
         
+    {% for post in posts %}
+        
+        <br>
         <article>    
-            <div class="card mb-3" style="max-width: 90%; border-color: rgb(170, 135, 135);">
+            <div class="card mb-3" style="max-width: 80%; max-height: 500px; border-color: rgb(170, 135, 135);">
             <div class="row g-0">
             <div class="col-md-4">
-                <img src="media\eventos\disquerias19.png" class="img-fluid rounded-start" alt="...">
+                <img src="{{post.imagen.url}}" class="img-fluid rounded-start" alt="img_evento">
             </div>
             <div class="col-md-8">
-                <div class="card-body">
-                <h2 class="card-title">¡Estamos en la noche de las disquerias!</h2>
-                <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis aliquid voluptatum asperiores at, sapiente magnam aliquam velit similique alias quibusdam minus, labore, nesciunt aperiam optio. Accusantium sit veritatis assumenda sed..
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, earum magnam deserunt aspernatur quas nostrum eius a adipisci, aliquid praesentium cupiditate quibusdam quam officia fugit, maiores ex reprehenderit tempore. Nam?
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, quo voluptatem dolor quisquam nesciunt consectetur, modi velit delectus sapiente omnis enim! Itaque, officia. Eveniet ad aut obcaecati repudiandae voluptas vitae.
-                </p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                <a href="#" id='boton-eventos' class="btn eventos" style="background-color: rgb(117, 2, 2, 0.95);">Mas Info</a>
+                <div class="card-body" style="flex-wrap:wrap">
+                <h2 class="card-title">{{post.titulo}}</h2>
+                <br>
+                <p class="card-text">{{post.contenido}}</p>
+                <p class="card-text"><small class="text-muted">{{post.created}}</small></p>                
                 </div>
+                <br>
+                <a href="#" id='boton-eventos' class="btn btn-danger eventos p-2" style="margin: 2em 1em;">Mas Información</a>
             </div>
             </div>
+            
             </div>
         </article>
+    {% endfor %}
     </main>
-    </div>  
+    
 {% endblock %}

@@ -4,7 +4,7 @@ class Carrito:
         self.session = request.session
         carrito = self.session.get('carrito')
         if not carrito:                                 #Comprueba si hay un carrito de compra previo
-            carrito = self.session['carrito'] = {}
+            self.session['carrito'] = {}
         self.carrito = carrito 
             
     def agregar(self,producto):

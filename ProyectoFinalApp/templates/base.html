@@ -19,7 +19,7 @@
           <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
             <div class="container-fluid">        
                 <span>
-                  <a class="navbar-brand" href="{% url 'index' %}" id="-logo"><img src="media\logo.png" alt="NO" id="logo"></a>
+                  <a class="navbar-brand" href="{% url 'index' %}" id="-logo"><img src="{% static 'ProyectoFinalApp/img/logo.png' %}" alt="NO" id="logo"></a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                   </button>
@@ -37,7 +37,7 @@
                     <a class="nav-link" id="link-nav" href="{% url 'producto' %}">Tienda</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="link-nav" href="#">Nosotros</a>
+                    <a class="nav-link" id="link-nav" href="{% url 'nosotros' %}">Nosotros</a>
                   </li>
                 </ul>
               </div>
@@ -78,7 +78,11 @@
     {% block content %}
       
     {% endblock %}
+    
+    <footer class="row">
+        caeza e poio
 
+    </footer>
     
     
     <script src="{% static 'ProyectoWebApp/vendor/jquery/jquery.min.js' %}"></script>
