@@ -15,7 +15,7 @@ def categoria(request,categoria_id):
 
 def agregar_tienda(request,producto_id):
     carrito = Carrito(request)
-    producto = Producto.objects.get(id = producto_id)
+    producto = Producto.objects.get(id=producto_id)
     carrito.agregar(producto=producto)
     
     return redirect('producto')

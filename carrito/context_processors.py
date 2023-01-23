@@ -1,4 +1,3 @@
-
 def importe_total_carrito(request):
     total = 0
     

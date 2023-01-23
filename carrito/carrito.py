@@ -8,6 +8,7 @@ class Carrito:
         self.carrito = carrito 
             
     def agregar(self,producto):
+        
         if (str(producto.id) not in self.carrito.keys()):  #Comprueba si el producto está o no agregado al carrito previamente
             self.carrito[producto.id] = {
                 "producto_id":producto.id,
