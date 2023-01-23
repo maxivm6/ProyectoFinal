@@ -16,7 +16,7 @@ class Categoria(models.Model):
 
 class Producto(models.Model):
     nombre = models.CharField(max_length=60)
-    descripcion = models.CharField(max_length=200)
+    descripcion = models.CharField(max_length=300)
     imagen = models.ImageField(upload_to='tienda',blank=True,null=True)
     precio = models.IntegerField()
     categorias = models.ManyToManyField(Categoria)

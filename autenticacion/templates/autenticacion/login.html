@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    {% load static %}
+    {% load bootstrap %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vitrola Records Disqueria</title>
+    <!-- Bootstrap -->
+    <link href="{% static 'ProyectoFinalApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Styles -->
+    <link href="{% static 'ProyectoFinalApp/css/estilo.css' %}" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+
+<body id="log-body">
+    <main class="container" style="height: 100%;">
+
+        <div id="contenedor">
+            <div id="img-fondo"><img src="{% static 'ProyectoFinalApp\img\vinilos.png' %}" alt="vinilos-fondo"></div>
+            <div class="col-4 text-center p-3" id="div-login">
+                <h2 class="h-log">Login</h2>
+                
+                <form id='log' action="{% url 'login' %}" method="POST" style="color: white;">
+                        
+                    {% csrf_token %}
+                    {{ form|bootstrap }}
+                        
+
+                </form>
+                {% if messages %}
+                    {% for mensaje in messages %}
+                        <br>
+                        <div class="alert alert-danger {{mensaje.tags}}" role="alert">
+                            {{mensaje}}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <br>
+                
+                <button form="log" type="submit" class="btn btn-danger btn-block mb-4" style="width: 50%;">Ingresar</button>
+
+                
+                <div class="text-center">
+                    <p style="color: rgb(231, 213, 190);">No sos miembro?
+                        <a href="{% url 'Registro' %}">
+                            Registrarse
+                        </a>
+                    </p>
+                    <a href="{% url 'index' %}">
+                        <h5 class="h-log" id="link-home">Ir al home</h5>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>

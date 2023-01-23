@@ -1,26 +1,127 @@
 *{
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 html{
-  max-height: 6000px;
+  height: 100%;
   font-family: 'Poppins';
+  transition: top 1500ms cubic-bezier(.5,.33,.3,.9) 200ms;
+  scroll-behavior: smooth;  
 }
-body{
-  /*background-image: linear-gradient(180deg,rgba(0, 0, 0, 0.1), rgba(12, 6, 3, 0.35)), url("../img/background-body.png");*/
-  background: linear-gradient(rgba(117, 2, 2, 0.95)6%,rgba(0, 0, 0)21%);
+.body:not(.body-home){
+  background: rgba(0, 0, 0);
   background-position:center;
   background-size: cover;
+  background-repeat:no-repeat;
+  background-attachment:scroll;
   display: flex;
-  height: 100%;
-  margin: 0;
   flex-direction: column;
 }
 
-footer{
-  background: linear-gradient(-180deg,rgba(0, 0, 0)21%,rgba(117, 2, 2, 0.95)6%);
+.header:not(.header-body){
+  background: linear-gradient(rgba(117, 2, 2, 0.95)44%,rgba(0, 0, 0)95%);
+  background-position:center;
+  background-size: cover;
+  background-repeat:no-repeat;
 }
 
+h1 {
+  color: white; 
+  font-weight: 300; 
+  font-size: 53px;
+}
+
+ul{
+  list-style: none;
+}
+footer > a{
+  text-decoration: none;
+  color: white;
+}
+footer a:hover{
+  text-decoration: underline!important;
+}
+
+footer{
+  background: linear-gradient(-180deg,rgba(0, 0, 0)24%,rgba(117, 2, 2, 0.80)88%);
+  height: 100%;
+  max-height: 50%;
+  color: rgb(255, 255, 255);
+}
+.footer-items{
+  padding-top: 2em;
+  max-width: 28%;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+#menu-perfil {
+  color: white;
+  text-align: center;
+  align-items: center;
+  margin-left: 4em;
+  margin-right: 1px;
+  max-height: 27px;
+  width: 180px;
+}
+#menu{
+  width: fit-content;
+  text-align: end;
+  justify-content: start;
+  padding-bottom: 4px;
+  height: fit-content;
+}
+#menu:hover{
+  background-color: rgba(148, 48, 50,0.5);
+  border-radius: 8px;
+  transition: 0.45s;
+}
+#menu ul ul {
+  display:none;
+  padding: 0;
+ }
+
+#menu ul ul li {
+  width: 120px;
+  font-size: 13px;
+  text-align: end;
+  
+}
+#menu ul ul a {
+  line-height:100%;
+}
+#menu ul li:hover > ul {
+  transition: 0.45s;
+  display:block;
+  width: 100%;
+ }
 /*Home*/
+
+.body-home {
+  background-image:url("../img/background-body.png");
+  background-position:center;
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-attachment: scroll;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  transition: top 1500ms cubic-bezier(.5,.33,.3,.9) 200ms;
+  scroll-behavior: smooth;  
+}
+
+#body-2{
+  background-image:url("../img/tocadiscos.png");
+  background-position:center;
+  background-size: cover;
+  background-repeat:no-repeat;
+  height: 100vh;
+  width: 100vw;  
+}
 
 #-logo{
   padding: 4em;
@@ -94,18 +195,21 @@ a{
 }
 
 #cuadro {
-  background-color: rgb(148, 48, 50);
-  z-index: 0;
+  background-color: rgb(148, 48, 50); 
   opacity: 0.8;
   border-radius: 2px;
   align-self: end;
   max-height: 70px;
+  margin-bottom: 1em;
 }
 #redes{
   align-items:center;
   margin-left: 23px;
   margin-bottom: 18px; 
 }
+
+
+
 
 /*Eventos*/
 .titulo {
@@ -121,18 +225,106 @@ a{
 
 
 /*Tienda*/
+#gallery{
+  display: flex; 
+  flex-direction: row; 
+  flex-wrap: wrap; 
+  width: fit-content;
+  justify-content: center;
+}
+
+#gallery::after{
+  content:"";
+  width:291px;
+}
+#barra{
+  background-color:rgba(204, 23, 26, 0.3);
+  float:left ; 
+  color: white; 
+  height: 100%; 
+  display: inline;
+  border-radius: 4px;
+  max-width:340px ;
+}
+
+
+/*Carrito*/
+#div-carrito{
+  margin-top: 3em;
+  color: rgb(0, 0, 0);
+  font-weight: 300;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+}
+#div-carrito p{
+  color: black;
+}
+#div-carrito a{
+  font-size: 20px;
+  font-weight: 300;
+}
+
+#div-body{
+  max-height: max-content ;
+  height: 70%;
+  margin: 0;
+  border: none;
+}
+.divider {
+  border-bottom: 1px solid #888989;
+  margin: 2px 0;
+}
+.divider-rigth {
+  border-right: 1px solid #888989;
+  margin: 2px 0;
+}
+.divider-medium {
+  border-bottom: 2px solid #888989;
+  margin: 2px 0;
+}
+#div-footer{
+  max-height: 25%;
+  height: 25%;
+  margin: 0;
+  border: none;
+  
+}
+#links-inline:hover{
+  color: rgb(148, 48, 50);
+  text-decoration:underline;
+}
+
+.inline{
+  display: inline;
+}
+.botones{
+  margin-top: 4.1em;
+  width: 40px;
+  height: 35px;  
+}
+
+.botones p{
+  color: white!important;
+  margin-bottom: 5px;
+}
+
+
+#img-carrito {
+  width: 100%;
+  height: 100%;
+  max-width:230px;
+  max-height:230px; 
+}
 
 
 /*Nosotros*/
 #img-nosotros{
   width: 37%;
   margin: 2em 0;
-  margin-left: 5em;
   float: left;
 }
 
 .texto-nos{
-  padding-left: 3.7em;
   color: rgb(255, 255, 255);
 }
 
@@ -142,6 +334,65 @@ a{
   resize:none;
 }
 
+/*MiCuenta*/
+#contenedor{
+  height: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.text-center{
+  text-align: center;
+}
 
+#div-login{
+  width: 17%;
+  margin-top: 1em;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  z-index: 5;
+  position: absolute;
   
+}
+.h-log{
+  color: rgb(240, 219, 191);
+  font-weight: 500;
+  font-variant: small-caps; 
+}
+
+#link-home:hover{
+  text-decoration: underline;
+}
+
+
+
+p > a:hover{
+  color: rgb(148, 48, 50);
+  text-decoration: underline!important;
+}
+
+.underline:hover {
+  text-decoration: underline!important;
+}
+
+#img-fondo{
+  opacity: 0.30;
+  z-index: -500;
+  position: relative;
+}
+
+#log-body{
+  background: radial-gradient(rgba(0, 0, 0)82%,rgba(117, 2, 2))!important;
+  height: 100%;
+}
+
+.container-2{
+  display: flex;
+  flex-wrap: wrap;
+  align-items:center;
+}
+.content{
+  flex-grow: 1;
+  width: 100%;
+}

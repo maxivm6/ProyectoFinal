@@ -4,37 +4,46 @@
 
 {% block content %}
 
+<br>
 
-<div class="container-fluid">
-    
-<div class="row justify-content-around mt-4">
-    <div class="col-xl-1 text-center justify-content-start" style="float: left; color: white;" id="barra">
-          
-        <a href="{% url 'carrito' %}"><img src="media\carro.svg" style="width: 40px; height: 40px;" alt=""></a>
+<main class="container-fluid" style="width: 90%; margin: 70px auto;">
+    <h1>Nuestra Tienda</h1>
+    <div class="divider"></div>
+    <div class="col-4 text-center" id="barra">
+        <h3 style="font-weight: 300; margin-top: 1em;">Categorías</h3>
         
+        {% for producto in productos %}
+            {% for cat in producto.categorias.all %}
+                <p><a category="{{cat.nombre}}" >{{cat.nombre}}</a></p>
+            {% endfor %}
+        {% endfor %}
         
     </div>
-    {% for producto in productos %}         
-            
-            <div class="card col-xl-3 col-lg-3 row-md-12 row-sm-12 align-items-center" style="width: 15%; margin-right: 1.5em; margin: 5px 5px;">
-                <img src="{{producto.imagen.url}}" class="card-img-top" style="width: 250px; height: 250px; ">
-                    <div class="card-body">
-                        <h5 class="card-title">{{producto.nombre}}</h5>
-                            {% for cat in producto.categorias.all%}
-                                <h6 class="card-cathegory">{{cat.nombre}}</h6>
-                            {% endfor %}
-                        <h5><strong>${{producto.precio}} </strong></h5>
-                        <p class="card-text">{{producto.descripcion}}</p>
-                        <div>
-                            <a type="button" href="{% url 'add' producto.id %}" class="btn btn-primary" data-toggle="popover" data-content="Agregado al Carrito">
-                                Al Carrito
-                            </a>
-                            <a href="#" class="btn btn-success">Comprar</a>
-                        </div>   
-                    </div>
+    <div class="row" id="gallery">
+        {% for producto in productos %}
+
+        <div class="col-8 card align-items-center " style="width: 20%; margin: 5px 5px;" category="{{producto.categorias}}">
+            <img src="{{producto.imagen.url}}" class="card-img-top" style="width: 250px; height: 250px; ">
+            <div class="card-body">
+                <h5 class="card-title">{{producto.nombre}}</h5>
+                {% for cat in producto.categorias.all %}
+                <h6 class="card-cathegory">{{cat.nombre}}</h6>
+                {% endfor %}
+                <h5>${{producto.precio}}</h5>
+                <p class="card-text">{{producto.descripcion}}</p>
             </div>
-              
-    {% endfor %}
-</div>
-</div>
+            <div class="align-items-center text-center mb-3">
+                <a type="button" href="{% url 'add' producto.id %}" class="btn btn-primary" data-container="body" data-toggle="popover" data-color="success" data-placement="top" data-content="Agregado al Carrito" onclick="showPopover(this);">
+                    Al Carrito
+                </a>
+                
+                <a href="#" class="btn btn-success">Comprar</a>          
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+</main>
+
 {% endblock %}

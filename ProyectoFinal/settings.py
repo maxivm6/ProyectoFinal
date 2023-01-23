@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 from decouple import config
+from django.contrib.messages import constants as mensajes
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,6 +45,9 @@ INSTALLED_APPS = [
     'carrito',
     'tienda',
     'eventos',
+    'autenticacion',
+    'crispy_forms',
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +142,15 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = config("EMAIL_PORT",cast=int)
 EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+MESSAGES_TAGS={
+    
+    mensajes.DEBUG: 'debug',
+    mensajes.INFO: 'info',
+    mensajes.ERROR: 'danger',
+    mensajes.WARNING: 'warning',
+    mensajes.SUCCESS: 'success',
+    
+}

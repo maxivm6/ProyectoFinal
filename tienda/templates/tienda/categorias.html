@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<br>
+<br>
+
+<main class="container-fluid" style="width: 90%; margin: 70px auto;">
+    <h1>Nuestra Tienda</h1>
+    <div class="divider"></div>
+    <div class="col-2 text-center bg-danger" style="float:left ; color: white; height: 100%; display: inline;"
+        id="barra">
+        <h3 style="font-weight: 300; margin-top: 1em;">Categorías</h3>
+
+        {% for producto in productos %}
+        {% for cat in producto.categorias.all %}
+        <p><a href="{% url 'Categoria' cat.id %}">{{cat.nombre.lower.capitalize}}</a></p>
+        {% endfor %}
+        {% endfor %}
+    </div>
+
+    <div class="row justify-content-end" style="display: flex; flex-direction: row; flex-wrap: wrap;" id="gallery">
+        {% for producto in productos %}
+
+        <div class="col-3 card align-items-center" style="width: 20%; margin: 5px 5px;">
+            <img src="{{producto.imagen.url}}" class="card-img-top" style="width: 250px; height: 250px; ">
+            <div class="card-body">
+                <h5 class="card-title">{{producto.nombre}}</h5>
+                {% for cat in producto.categorias.all %}
+                <h6 class="card-cathegory">{{cat.nombre}}</h6>
+                {% endfor %}
+                <h5>${{producto.precio}}</h5>
+                <p class="card-text">{{producto.descripcion}}</p>
+            </div>
+            <div class="align-items-center text-center mb-3">
+                <a type="button" href="{% url 'add' producto.id %}" class="btn btn-primary" data-toggle="popover"
+                    data-content="Agregado al Carrito">
+                    Al Carrito
+                </a>
+                <a href="#" class="btn btn-success">Comprar</a>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</main>
+
+{% endblock %}

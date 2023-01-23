@@ -3,29 +3,37 @@
 {% load static %}
 
 {% block content %}
-    <h1 class="titulo">Enterate de todo Acá</h1>
     
-    <main class="container" style="max-width: 90%;">
+
+    <main class="container" style="width: 60%; margin: 70px auto;">
+        <br>
+        <h1>Enterate de todo Acá</h1>
+        <div class="divider"></div>
+    
         
     {% for post in posts %}
         
         <br>
         <article>    
-            <div class="card mb-3" style="max-width: 80%; max-height: 500px; border-color: rgb(170, 135, 135);">
+            <div class="card mb-3" style="max-width: 100%; max-height: 374px; border-color: rgb(170, 135, 135); height: 100%;">
             <div class="row g-0">
             <div class="col-md-4">
-                <img src="{{post.imagen.url}}" class="img-fluid rounded-start" alt="img_evento">
+                <img src="{{post.imagen.url}}" class="img-fluid rounded-start" style="max-width: 100%;" alt="img_evento">
             </div>
             <div class="col-md-8">
-                <div class="card-body" style="flex-wrap:wrap">
-                <h2 class="card-title">{{post.titulo}}</h2>
-                <br>
-                <p class="card-text">{{post.contenido}}</p>
-                <p class="card-text"><small class="text-muted">{{post.created}}</small></p>                
+                <div class="card-body" style="flex-wrap:wrap; max-height: 300px; height: 100%;">
+                    <h2 class="card-title">{{post.titulo}}</h2>
+                    <br>
+                    <p class="card-text">{{post.contenido}}</p>
+                    <p class="card-text"><small class="text-muted">{{post.created}}</small></p>               
+                </div> 
+                <div class="row text-end" style="margin-right: 1em; float:right;">
+                    <div class="col">
+                        <a href="#" id='boton-eventos' class="btn btn-danger" style="float: right;">Mas Información</a>
+                    </div>
                 </div>
-                <br>
-                <a href="#" id='boton-eventos' class="btn btn-danger eventos p-2" style="margin: 2em 1em;">Mas Información</a>
             </div>
+            
             </div>
             
             </div>
@@ -34,3 +42,4 @@
     </main>
     
 {% endblock %}
+

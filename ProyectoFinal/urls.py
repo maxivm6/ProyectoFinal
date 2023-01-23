@@ -23,7 +23,8 @@ urlpatterns = [
     path('contacto/',include('contacto.urls')),
     path('tienda/',include('tienda.urls')),
     path('carrito/',include('carrito.urls')),
-    path('eventos/',include('eventos.urls')),    
+    path('eventos/',include('eventos.urls')),
+    path('autenticacion/',include('autenticacion.urls')),    
 ]
 
 

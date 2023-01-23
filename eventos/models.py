@@ -5,7 +5,7 @@ from django.db import models
 class Post(models.Model):
     titulo=models.CharField(max_length=40)
     imagen=models.ImageField()
-    contenido=models.CharField(max_length=800)
+    contenido=models.CharField(max_length=600)
     created=models.DateTimeField(auto_now_add=True)
     updated=models.DateTimeField(auto_now_add=True)
     

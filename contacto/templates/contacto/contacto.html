@@ -4,44 +4,42 @@
 
 {% block content %}
 
-    {% if "ok" in request.GET %}
+{% if "ok" in request.GET %}
 
-        <h4 style="color: white; text-align: center; margin: 5em auto;">Mensaje Enviado Correctamente. Te responderemos a la brevedad</h4>
+<h4 style="color: white; text-align: center; margin: 5em auto;">Mensaje Enviado Correctamente. Te responderemos a la
+    brevedad</h4>
 
-    {% elif "fail" in request.GET %}
+{% elif "fail" in request.GET %}
 
-        <h4 style="color: white; text-align: center; margin: 5em auto;">No Pudo Enviarse su Mensaje.</h4>   
+<h4 style="color: white; text-align: center; margin: 5em auto;">No Pudo Enviarse su Mensaje.</h4>
 
-    {% else %}
-    <!--
-    <div id="div-form">
-      <form action="" method="post">
-          {%csrf_token%}
-          <table class="form-table">{{Formulario.as_table}}</table>
-          <button type="submit" class="btn btn-primary">Enviar</button>
-      </form>    
-    </div>
-    -->
-    <div class="row">
+{% else %}
 
+<main class="container" style="width: 60%; margin: 70px auto;">
+    <br>
+    
+    <h1 class="text-start">Contacto</h1>
+    <div class="divider"></div>
+    <br>
+    <div class="row justify-content-center">
 
-        <div class="col p-4 m-5">
-            <form class="col-3" id="form-contacto" action="" method="post">
+        <div class="col-5 p-4 m-3">
+            <form style="margin: auto;" id="form-contacto" action="" method="post">
                 {% csrf_token %}
                 {{ Formulario|as_bootstrap }}
                 <div class="form-actions p-4 m-2 text-center">
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="submit" class="btn btn-danger">Enviar</button>
                 </div>
             </form>
         </div>
 
 
     </div>
-    
-    
-    
-    
-    {% endif %}
+
+</main>
+
+
+{% endif %}
 
 
 
