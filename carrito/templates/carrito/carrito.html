@@ -3,70 +3,81 @@
 {% load static %}
 
 {% block content %}
-        <div class="container" style="width: 60%; margin: 70px auto;">
-            <br>
-            <h1 style="color: white; font-weight: 300; font-size: 53px;">Mi Carrito</h1>
-            <div class="divider"></div>
+<div class="container" style="width: 60%; margin: 70px auto;">
+    <br>
+    <h1 style="color: white; font-weight: 300; font-size: 53px;">Mi Carrito</h1>
+    <div class="divider"></div>
+</div>
+
+{% if request.session.carrito.items %}
+{% for key,value in request.session.carrito.items %}
+
+<div id="div-carrito" class="container" style="width: 60%; min-height: 300px; max-height: 300px;">
+    <div class="row text-center">
+        <div class="col-3">
+            <div class="row justify-content-center pt-2" style="max-height: 200px; min-height: 200px;">
+                <img id="img-carrito" src="{{value.imagen}}" alt="producto">
+            </div>
+            <div class="row align-items-center text-center" style="max-height: 100px; min-height: 100px;">
+                <h3>${{value.precio}}</h3>
+            </div>
         </div>
-        
-        {% if request.session.carrito.items %}
-            {% for key,value in request.session.carrito.items %}
-        
-            <div id="div-carrito" class="container" style="width: 60%; min-height: 300px; max-height: 300px;">
-                <div class="row text-center">
-                    <div class="col-3">
-                        <div class="row justify-content-center pt-2" style="max-height: 200px; min-height: 200px;">
-                            <img id="img-carrito" src="{{value.imagen}}" alt="producto">
-                        </div>
-                        <div class="row align-items-center text-center" style="max-height: 100px; min-height: 100px;">
-                            <h3>${{value.precio}}</h3>
-                        </div>
+        <div class="col-9 p-2 text-start m-0">
+            <div id="div-body" class="container-fluids text-start">
+                <h2 class="inline">{{value.nombre}}</h2>
+
+                <p>{{value.descripcion}}</p>
+            </div>
+            <div class="divider"></div>
+            <div class="container">
+                <div id="div-footer" class="row mt-2">
+                    <div class="col-6 mt-1">
+                        <a class="btn btn-primary inline m-1" href="{% url 'carrito:restar' value.producto_id %}">-</a>
+                        <p class="inline  m-2">{{value.cantidad}}</p>
+                        <a class="btn btn-primary inline m-1" href="{% url 'carrito:agregar' value.producto_id %}">+</a>
                     </div>
-                    <div class="col-9 p-2 text-start m-0">                       
-                        <div id="div-body" class="container-fluids text-start">
-                            <h2 class="inline">{{value.nombre}}</h2>
-                            
-                        <p>{{value.descripcion}}</p>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="container">
-                        <div id="div-footer" class="row mt-2">
-                            <div class="col-6 mt-1">
-                                <a class="btn btn-primary inline m-1" href="{% url 'carrito:restar' value.producto_id %}">-</a>
-                                <p class="inline  m-2">{{value.cantidad}}</p>
-                                <a class="btn btn-primary inline m-1" href="{% url 'carrito:agregar' value.producto_id %}">+</a>
-                            </div>
-                            <div class="col-6 text-end">
-                                <a id='links-inline' href="{% url 'carrito:eliminar' value.producto_id %}">
-                                    <p id="links-inline" style="float: right;">Eliminar</p>
-                                </a>
-                            </div>    
-                        </div>
-                        </div>
-                    </div>      
-                
+                    <div class="col-6 text-end">
+                        <a id='links-inline' href="{% url 'carrito:eliminar' value.producto_id %}">
+                            <p id="links-inline" style="float: right;">Eliminar</p>
+                        </a>
+                    </div>
                 </div>
-                <br><br>
             </div>
-            {% endfor %}
+        </div>
 
-            <div class="container" style="width: 60%; margin: 70px auto;">
-                <h2 style="color: white; font-weight: 300; font-size: 50px; text-align: end; text-transform: uppercase;">Total</h2>
-                <div class="divider"></div>
-                <h3 style="color: white; font-weight: 300; font-size: 44px; text-align: end; text-transform: uppercase;">${{importe_total_carrito}}</h3>
+    </div>
+    <br><br>
+</div>
+{% endfor %}
 
-            </div>
+<div class="container mb-2" style="width: 60%; margin: 70px auto;">
+    <h2 style="color: white; font-weight: 300; font-size: 50px; text-align: end; text-transform: uppercase;">Total</h2>
+    <div class="divider"></div>
+    <div class="row">
+        <div class="col-6">
+            <a href="{% url 'pagina_vacia' %}" class="btn btn-primary p-3" style="font-size: 16px;">Finalizar Compra</a> 
+        </div>
+        <div class="col-6">
+            <h3 style="color: white; font-weight: 300; font-size: 44px; text-align: end; text-transform: uppercase;">
+                ${{importe_total_carrito}}
+            </h3>
+        </div>
+    </div>  
+</div>
 
-        {% else %}
-            <div class="container" style="width: 60%;">
-            <tr>
-                <td colspan="3">
-                    <div class="alert alert-danger text-center">Carrito Vacío</div>
-                </td>
-            </tr>
-            </div>
-        {% endif %}
-        
-    
+
+
+
+{% else %}
+<div class="container" style="width: 60%;">
+    <tr>
+        <td colspan="3">
+            <div class="alert alert-danger text-center">Carrito Vacío</div>
+        </td>
+    </tr>
+</div>
+{% endif %}
+
+
 
 {% endblock %}

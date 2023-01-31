@@ -16,8 +16,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-
   
+  <script src="{% static 'ProyectoFinalApp/js/script.js' %}"></script> 
 
 </head>
 
@@ -67,6 +67,7 @@
                   <li>
                     <p style="font-variant: small-caps; font-size: 18px;">Hola {{user.username}}</p>
                     <ul>
+                      <li id="menu-item"><a class="underline" href="{% url 'mi_perfil' %}">Mi Perfil</a></li>
                       <li id="menu-item"><a class="underline" href="{% url 'carrito' %}">Carrito de Compras</a></li>
                       <div class="divider"></div>
                       <li id="menu-item"><a class="underline" href="{% url 'Logout' %}">Cerrar sesion</a></li>
@@ -113,17 +114,17 @@
         <p class="text-start">Nuestras Redes</p>
         <div class="divider mb-2"></div>
         <ul class="text-start">
-          <li class="pt-1"><a href="https://instagram.com">Instagram</a></li>
-          <li class="pt-1"><a href="https://facebook.com">Facebook</a></li>
-          <li class="pt-1"><a href="https://youtube.com">Youtube</a></li>
+          <li class="pt-1"><a href="https://instagram.com" target="_blank">Instagram</a></li>
+          <li class="pt-1"><a href="https://facebook.com"  target="_blank">Facebook</a></li>
+          <li class="pt-1"><a href="https://youtube.com"  target="_blank">Youtube</a></li>
         </ul>
         <br><br>
         <p class="text-start">Términos y Privacidad</p>
         <div class="divider mb-2"></div>
         <ul class="text-start">
-          <li class="pt-1"><a href="#">Politicas de Privacidad</a></li>
-          <li class="pt-1"><a href="#">Aviso Legal</a></li>
-          <li class="pt-1"><a href="#">Cokies</a></li>
+          <li class="pt-1"><a href="{% url 'pagina_vacia' %}">Politicas de Privacidad</a></li>
+          <li class="pt-1"><a href="{% url 'pagina_vacia' %}">Aviso Legal</a></li>
+          <li class="pt-1"><a href="{% url 'pagina_vacia' %}">Cokies</a></li>
         </ul>
       </div>
       <div class="footer-items">
@@ -138,7 +139,7 @@
     <div class="container-fluid" style="width: 80%;">
       <div class="row mt-2 text-start">
         <p class="m-0 mbt1" style="font-size:smaller; font-weight: 100;">&copy; Vitrola Records 2023. Autor: Maximiliano
-          Siracusa</p>
+          Siracusa.
       </div>
     </div>
   </footer>

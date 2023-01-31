@@ -22,6 +22,7 @@ class Producto(models.Model):
     categorias = models.ManyToManyField(Categoria)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
+
     
     
     class Meta:

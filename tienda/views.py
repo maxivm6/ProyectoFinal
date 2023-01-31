@@ -6,13 +6,14 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def producto(request):
+    categorias = Categoria.objects.all()
     productos = Producto.objects.all()
-    return render(request,'tienda/tienda.html',{'productos':productos})
+    return render(request,'tienda/tienda.html',{'categorias':categorias,'productos':productos})
 
 def categoria(request,categoria_id):
-    categorias = Categoria.objects.get(id=categoria_id)
+    categoria = Categoria.objects.get(id=categoria_id)
     productos = Producto.objects.filter(categorias=categoria_id)
-    return render(request,'tienda/tienda.html',{'categorias':categorias},{'productos':productos})
+    return render(request,'tienda/categorias.html',{'categoria':categoria,'productos':productos})
 
 
 @login_required (login_url="/autenticacion/")

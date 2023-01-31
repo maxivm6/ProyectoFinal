@@ -5,4 +5,8 @@ from .models import Post
 
 def eventos(request):
     posts = Post.objects.all()
-    return render(request,'eventos/eventos.html',{'posts':posts})   
+    return render(request,'eventos/eventos.html',{'posts':posts})
+
+def mostrar_evento(request,post_id):
+    post = Post.objects.get( id = post_id)
+    return render(request,'eventos/evento.html',{'post':post})   

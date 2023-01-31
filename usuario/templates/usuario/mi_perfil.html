@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load bootstrap_tags %}
+
+{% block content %}
+
+<br>
+
+
+<main class="container" style="width: 40%; margin: 70px auto;">
+    <h1>Mi Perfil</h1>
+    <div class="divider"></div>
+    <br>
+    {% if request.user.is_authenticated %}
+
+    <div class="row justify-content-start" style="color: white; width: 100%;padding-left: 1em; height: 50vh;">
+        <table class="col-12">
+            <tr>
+                <td class="text-start">
+                    <h4 style="font-weight: 500; margin-bottom: 2em;">Nombre de Usuario: </h4>
+                </td>
+                <td>
+                    <h4 class="text-end" style="font-weight: 200;margin-bottom: 2em;">{{user.username}}</h4>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-start">
+                    <h4 style="font-weight: 500; margin-bottom: 2em;">Nombre/s: </h4>
+                </td>
+                <td>
+                    <h4 class="text-end" style="font-weight: 200;margin-bottom: 2em;">{{user.first_name}}</h4>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-start">
+                    <h4 style="font-weight: 500; margin-bottom: 2em;">Apellido/s: </h4>
+                </td>
+                <td>
+                    <h4 class="text-end" style="font-weight: 200;margin-bottom: 2em;">{{user.last_name}}</h4>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-start">
+                    <h4 style="font-weight: 500; margin-bottom: 2em;">Email: </h4>
+                </td>
+                <td>
+                    <h4 class="text-end" style="font-weight: 200;margin-bottom: 2em;">{{user.email}}</h4>
+                </td>
+            </tr>
+        </table>
+        <div class="divider"></div>
+        {% if messages %}
+                    {% for mensaje in messages %}
+                        <br>
+                        <div class="alert alert-success {{mensaje.tags}}" role="success">
+                            {{mensaje}}
+                        </div>
+                    {% endfor %}
+        {% endif %}
+        <div class="form-actions p-4 m-2 text-center">
+            <a href="{% url 'editar_perfil' %}" class="btn btn-danger">Modificar</a>
+        </div>
+    </div>
+
+
+    {% endif %}
+</main>
+
+
+{% endblock %}

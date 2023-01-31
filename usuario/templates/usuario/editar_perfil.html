@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load bootstrap_tags %}
+
+{% block content %}
+
+
+<br>
+
+
+<main class="container" style="width:35%; margin: 70px auto;">
+    <h1>Mi Perfil</h1>
+    <div class="divider"></div>
+    <br>
+    {% if request.user.is_authenticated %}
+
+    <div class="row justify-content-end" style="color: white; width: 85%;padding-left: 1em; height: 70vh;">
+
+        <form class="col-10" id="change" action="" method="post">
+            {% csrf_token %}
+            {{miFormulario|as_bootstrap}}
+            <br>
+            <div class="form-actions p-4 m-2 text-start inline">
+                <h6 class="inline text-start"><a href="{% url 'mi_perfil' %}" class="underline">Volver Atrás</a></h6>
+            </div>
+            <div class="form-actions p-4 m-2 text-center inline">   
+                <button form="change" type="submit" class="btn btn-danger">Guardar Cambios</button>
+            </div>
+        </form>
+    
+    </div>
+
+    {% endif %}
+
+</main>
+
+{% endblock %}

@@ -98,6 +98,9 @@ footer{
   display:block;
   width: 100%;
  }
+.underline:hover{
+  text-decoration: underline!important;
+}
 /*Home*/
 
 .body-home {
@@ -232,12 +235,22 @@ a{
   width: fit-content;
   justify-content: center;
 }
+#galeria{
+  display: flex; 
+  flex-direction: row; 
+  flex-wrap: wrap;
+  justify-content:center;
+}
+#galeria::after{
+  content:"";
+  width:291px;
+}
 
 #gallery::after{
   content:"";
   width:291px;
 }
-#barra{
+#barra, #barra2{
   background-color:rgba(204, 23, 26, 0.3);
   float:left ; 
   color: white; 

@@ -12,3 +12,6 @@ def nosotros(request):
 
 def login(request):
     return render(request,'login.html')
+
+def pagina_vacia(request):
+    return render(request,'nada.html')

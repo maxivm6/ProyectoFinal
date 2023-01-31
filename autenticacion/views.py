@@ -12,7 +12,7 @@ def loguear(request):
             contra = form.cleaned_data.get("password")
             usuario = authenticate(username=name,password=contra)
             if usuario is not None:
-                login(request,usuario)
+                login(request,usuario)              
                 return redirect('index')
             else:
                 messages.error(request,"usuario y/o contraseña incorrectos")
@@ -34,7 +34,7 @@ class Registro(View):
         
         if form.is_valid():
             usuario = form.save()
-        
+            #messages.success(request,"Cuenta creada con éxito.")
             login (request,usuario)
             
             return redirect('index')
@@ -45,6 +45,5 @@ class Registro(View):
                 return render(request,'autenticacion/registro.html',{'form':form})
         
 def cerrar_sesion(request):
-    logout(request)
-    
+    logout(request)  
     return redirect('index')

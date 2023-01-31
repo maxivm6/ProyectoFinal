@@ -10,7 +10,7 @@ urlpatterns = [
     path('',producto,name="producto"),
     path('carrito/',carrito,name='carrito'),
     path('producto/<int:producto_id>',agregar_tienda,name='add'),
-    path('categoria/<categoria_id>/',categoria,name="Categoria"),
+    path('categoria/<int:categoria_id>/',categoria,name="categoria"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL , document_root= settings.MEDIA_ROOT)

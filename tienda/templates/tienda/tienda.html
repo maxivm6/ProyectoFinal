@@ -12,11 +12,11 @@
     <div class="col-4 text-center" id="barra">
         <h3 style="font-weight: 300; margin-top: 1em;">Categorías</h3>
         
-        {% for producto in productos %}
-            {% for cat in producto.categorias.all %}
-                <p><a category="{{cat.nombre}}" >{{cat.nombre}}</a></p>
+        
+            {% for categoria in categorias %}
+                <p><a href="{% url 'categoria' categoria.id %}">{{categoria.nombre}}</a></p>
             {% endfor %}
-        {% endfor %}
+        
         
     </div>
     <div class="row" id="gallery">
@@ -33,11 +33,12 @@
                 <p class="card-text">{{producto.descripcion}}</p>
             </div>
             <div class="align-items-center text-center mb-3">
-                <a type="button" href="{% url 'add' producto.id %}" class="btn btn-primary" data-container="body" data-toggle="popover" data-color="success" data-placement="top" data-content="Agregado al Carrito" onclick="showPopover(this);">
+                <a type="button" href="{% url 'add' producto.id %}" class="btn btn-primary">
                     Al Carrito
-                </a>
-                
-                <a href="#" class="btn btn-success">Comprar</a>          
+                </a>              
+                <a href="{% url 'pagina_vacia' %}" class="btn btn-success">
+                    Comprar
+                </a>          
             </div>
 
         </div>

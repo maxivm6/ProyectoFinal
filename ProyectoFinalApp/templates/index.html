@@ -59,37 +59,39 @@
                 </li>
                 <div class="container-2">
                   {% if user.is_authenticated %}
-                  <div class="row justify-content-center" id="menu-perfil">              
-                      <nav id="menu">
+                  <div class="row justify-content-center" id="menu-perfil">
+                    <nav id="menu">
+                      <ul>
+                        <li>
+                          <p style="font-variant: small-caps; font-size: 18px;">Hola {{user.username}}</p>
                           <ul>
-                              <li>
-                                  <p style="font-variant: small-caps; font-size: 18px;">Hola {{user.username}}</p>
-                                  <ul>
-                                      <li id="menu-item"><a class="underline" href="{% url 'carrito' %}">Carrito de Compras</a></li>
-                                      <div class="divider"></div>
-                                      <li id="menu-item"><a class="underline" href="{% url 'Logout' %}">Cerrar sesion</a></li>
-                                  </ul>
-                              </li>                 
-                          </ul>              
-                      </nav> 
+                            <li id="menu-item"><a class="underline" href="{% url 'mi_perfil' %}">Mi Perfil</a></li>
+                            <li id="menu-item"><a class="underline" href="{% url 'carrito' %}">Carrito de Compras</a>
+                            </li>
+                            <div class="divider"></div>
+                            <li id="menu-item"><a class="underline" href="{% url 'Logout' %}">Cerrar sesion</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </nav>
                   </div>
                   {% else %}
                   <li class="nav-item">
-                      <a class="nav-link" id="link-nav" href="{% url 'login' %}">Mi Cuenta</a>
+                    <a class="nav-link" id="link-nav" href="{% url 'login' %}">Mi Cuenta</a>
                   </li>
                   {% endif %}
                   <div class="content">
-                      <!-- El contenido de tu página va aquí -->
+                    <!-- El contenido de tu página va aquí -->
                   </div>
-              </div>
-              
+                </div>
+
               </ul>
             </div>
           </div>
         </nav>
       </header>
 
-    
+
       <!--Contenido-->
 
       <div class="d-flex flex-grow-1">
@@ -102,21 +104,22 @@
         <div class="col-xl-6 d-flex" id="cuadro">
           <nav class="navbar navbar-expand-lg">
             <ul class="navbar-nav" id="redes">
-              <li class="nav-item"><a href="https://instagram.com"><img src="static\ProyectoFinalApp\img\instagram.png"
-                    alt=""></a></li>
-              <li class="nav-item"><a href="https://facebook.com"><img src="static\ProyectoFinalApp\img\facebook.png"
-                    alt=""></a></li>
-              <li class="nav-item"><a href="https://youtube.com"><img src="static\ProyectoFinalApp\img\youtube.png"
-                    alt=""></a></li>
+              <li class="nav-item"><a href="https://instagram.com" target="_blank"><img
+                    src="static\ProyectoFinalApp\img\instagram.png" alt=""></a></li>
+              <li class="nav-item"><a href="https://facebook.com" target="_blank"><img
+                    src="static\ProyectoFinalApp\img\facebook.png" alt=""></a></li>
+              <li class="nav-item"><a href="https://youtube.com" target="_blank"><img
+                    src="static\ProyectoFinalApp\img\youtube.png" alt=""></a></li>
             </ul>
           </nav>
         </div>
       </div>
     </div>
-    
+
 
     <div id="body-2" class="row">
-      <div class="col-xl-12 lg-12 md-12 sm-12 align-self-end text-end" id="texto-body" style="padding-right: 1.5em; padding-top: 0.5em; font-size: 60px;">
+      <div class="col-xl-12 lg-12 md-12 sm-12 align-self-end text-end" id="texto-body"
+        style="padding-right: 1.5em; padding-top: 0.5em; font-size: 60px;">
         Elegí tu vinilo<br>
         No importa que tan dificil<br>
         Nosotros lo encontramos y<br>
@@ -146,17 +149,17 @@
             <p class="text-start">Nuestras Redes</p>
             <div class="divider mb-2"></div>
             <ul class="text-start">
-              <li class="pt-1"><a href="https://instagram.com">Instagram</a></li>
-              <li class="pt-1"><a href="https://facebook.com">Facebook</a></li>
-              <li class="pt-1"><a href="https://youtube.com">Youtube</a></li>
+              <li class="pt-1"><a href="https://instagram.com" target="_blank">Instagram</a></li>
+              <li class="pt-1"><a href="https://facebook.com" target="_blank">Facebook</a></li>
+              <li class="pt-1"><a href="https://youtube.com" target="_blank">Youtube</a></li>
             </ul>
             <br><br>
             <p class="text-start">Términos y Privacidad</p>
             <div class="divider mb-2"></div>
             <ul class="text-start">
-              <li class="pt-1"><a href="#">Politicas de Privacidad</a></li>
-              <li class="pt-1"><a href="#">Aviso Legal</a></li>
-              <li class="pt-1"><a href="#">Cokies</a></li>
+              <li class="pt-1"><a href="{% url 'pagina_vacia' %}">Politicas de Privacidad</a></li>
+              <li class="pt-1"><a href="{% url 'pagina_vacia' %}">Aviso Legal</a></li>
+              <li class="pt-1"><a href="{% url 'pagina_vacia' %}">Cokies</a></li>
             </ul>
           </div>
           <div class="footer-items">
@@ -172,7 +175,7 @@
           <div class="row mt-2 text-start">
             <p class="m-0 mbt1" style="font-size:smaller; font-weight: 100;">&copy; Vitrola Records 2023. Autor:
               Maximiliano
-              Siracusa</p>
+              Siracusa.
           </div>
         </div>
       </footer>

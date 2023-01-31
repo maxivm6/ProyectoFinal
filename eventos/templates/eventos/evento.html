@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<main class="container" style="width: 60%; margin: 70px auto;">
+    <br>
+
+    <div class="row justify-content-center">
+        <div class="col-10" style="border-radius: 5px; padding: 2em; color: white;">
+            <div>
+                <img src="{{post.imagen.url}}" style="float: left; width: 40%; padding-right: 2em; padding-bottom: 2em;" alt="imagen-post">
+            </div>
+            <div><h3>{{post.titulo}}</h3></div>
+            <div><h6>{{post.updated}}</h6></div>
+            <br>
+            <div>
+                {{post.contenido}} <br>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. A odio deserunt fuga ad itaque! Mollitia quia consequuntur quam corporis nesciunt perferendis, exercitationem ducimus et perspiciatis tenetur alias natus dolor quod?
+                <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto praesentium, dolorum itaque iste tempore neque quia modi provident repellendus autem ex in aut excepturi nam tempora? Excepturi inventore iusto in?
+                <br> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus possimus ut facilis porro sint aspernatur sit, eaque modi aperiam laudantium exercitationem, dolorem odit est assumenda cumque illo? Reiciendis, reprehenderit quibusdam.
+                <br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum deserunt, tempora deleniti eos quisquam placeat culpa fugit cumque facere ullam necessitatibus aut exercitationem blanditiis, reiciendis dignissimos impedit odio praesentium tenetur.
+                <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet consequuntur fugiat delectus possimus veritatis assumenda sint deserunt labore fugit, eius ad nam optio. Neque, autem alias. Quam nobis dicta mollitia!
+            </div>
+            <br>
+            <div>
+                <h5><a class="underline" href="{% url 'eventos' %}">Volver a Eventos</a></h5>
+            </div>
+            
+            
+        </div>
+    </div>
+
+
+</main>
+
+
+{% endblock %}
